@@ -68,7 +68,7 @@ if (isset($_POST['json'])) {
 
 
 } else {
-    echo "Something went terribly wrong.";
+    echo "Something went terribly wrong 1.";
 }
 
 

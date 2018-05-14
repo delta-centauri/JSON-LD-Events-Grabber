@@ -2,7 +2,6 @@ jQuery(document).ready(function () {
 
     function parseJson(json) {        
         var ajaxUrl = location.protocol + "//" + location.hostname + location.pathname + 'ajax/parse.php';
-        console.log(ajaxUrl);
         jQuery.ajax({
             url: ajaxUrl,
             type: 'post',
@@ -26,8 +25,6 @@ jQuery(document).ready(function () {
         }
 
         var ajaxUrl = location.protocol + "//" + location.hostname + location.pathname + 'ajax/getJsonLd.php';
-        console.log(ajaxUrl);
-        console.log(eventUrl);
         jQuery.ajax({
             url: ajaxUrl,
             data: {
@@ -36,7 +33,6 @@ jQuery(document).ready(function () {
             cache: false
         })
         .done(function(data) {
-            console.log(JSON.parse(data));
             jQuery('.json-ld-result').html(data);
             var jsonObj = JSON.parse(data);
             parseJson(jsonObj);
@@ -49,7 +45,6 @@ jQuery(document).ready(function () {
 
     /* event */
     jQuery(function() {
-        //jQuery('span.add-remove-cat').on('click', function(event) {
         jQuery('.js-btnGetJsonLd').on('click', function(event) {
             event.stopPropagation();
             getJsonLd();
