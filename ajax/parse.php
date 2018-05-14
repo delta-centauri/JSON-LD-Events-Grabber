@@ -1,9 +1,5 @@
 <?php
-$rootPath = $_SERVER['DOCUMENT_ROOT'] . "/PK-AP8/";
-require_once($rootPath . "main.class.php");
-
-
-
+require_once "../main.class.php";
 
 if (isset($_POST['json'])) {
 
@@ -26,7 +22,6 @@ if (isset($_POST['json'])) {
 
     // *real* html output here:
     echo '<h2>The actual output! :-)</h2>';
-    echo '<p class="text-larger red-font">Depends on AP7 specification</p>';
     echo '<p class="text-larger"><a href="'.Main::$rootUrl.'serve/events.json'.'">Open JSON file</a></p>';
     foreach ($parsed as $p) {
         if ($p["success"]) {
@@ -40,18 +35,18 @@ if (isset($_POST['json'])) {
             echo '<div class="event text-larger">';
             echo '<div class="content">';
             echo '<h3>'.$p["name"].'</h3>';
-            echo '<strong>Beschreibung: </strong><br>';
+            echo '<strong>Description: </strong><br>';
             echo $description;
             echo '</p>';
             if ($p["startDateISO8601"] !== "") {
-                echo '<p><strong>Datum: </strong><br>';
+                echo '<p><strong>Date: </strong><br>';
                 echo Main::getDate($p["startDateISO8601"], "d.m.Y");
                 if ($p["endDateISO8601"] !== "" && Main::getDate($p["startDateISO8601"], "d.m.Y") !== Main::getDate($p["endDateISO8601"], "d.m.Y")) {
                     echo " - ".Main::getDate($p["endDateISO8601"], "d.m.Y");
                 }
                 echo '</p>';
                 if (Main::getDate($p["startDateISO8601"], "H:i") !== "00:00") {
-                    echo '<p><strong>Zeit: </strong><br>';
+                    echo '<p><strong>Time: </strong><br>';
                     echo Main::getDate($p["startDateISO8601"], "H:i");
                     if ($p["endDateISO8601"] !== "") {
                         echo ' - ';
@@ -61,7 +56,7 @@ if (isset($_POST['json'])) {
                 }
             }            
             if ($p["url"] !== "") {
-                echo '<p>[<a href="'.$p["url"].'">Mehr Infos</a>]</p>';
+                echo '<p>[<a href="'.$p["url"].'">Details</a>]</p>';
             }
             echo '</div>';
             echo '</div>';

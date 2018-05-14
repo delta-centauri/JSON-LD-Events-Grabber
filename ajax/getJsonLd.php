@@ -1,9 +1,8 @@
 <?php
-$rootPath = $_SERVER['DOCUMENT_ROOT'] . "/PK-AP8/";
-require_once($rootPath . "main.class.php");
+require_once "../main.class.php";
 
-if (isset($_GET['url'])) {
-    echo Main::getJsonLd($_GET['url']);
+if (isset($_GET['eventUrl'])) {
+    echo Main::getJsonLd($_GET['eventUrl']);
 } else {
-    echo "Something went terribly wrong.";
+    echo "Something went terribly wrong 2.";
 }

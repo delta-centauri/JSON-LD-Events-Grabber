@@ -1,8 +1,10 @@
 jQuery(document).ready(function () {
 
-    function parseJson(json) {
+    function parseJson(json) {        
+        var ajaxUrl = location.protocol + "//" + location.hostname + location.pathname + 'ajax/parse.php';
+        console.log(ajaxUrl);
         jQuery.ajax({
-            url: 'ajax/parse.php',
+            url: ajaxUrl,
             type: 'post',
             data: {
                 json: json
@@ -18,20 +20,23 @@ jQuery(document).ready(function () {
 
     function getJsonLd() {
         jQuery('.json-ld-result').text("");
-        var url = jQuery('.website-url').data('sample-url');
+        var eventUrl = jQuery('.website-url').data('sample-url');
         if (jQuery('.website-url').val().indexOf("http") == 0) {
-            url = jQuery('.website-url').val();
+            eventUrl = jQuery('.website-url').val();
         }
 
+        var ajaxUrl = location.protocol + "//" + location.hostname + location.pathname + 'ajax/getJsonLd.php';
+        console.log(ajaxUrl);
+        console.log(eventUrl);
         jQuery.ajax({
-            url: 'ajax/getJsonLd.php',
+            url: ajaxUrl,
             data: {
-                url: url
+                eventUrl: eventUrl
             },
             cache: false
         })
         .done(function(data) {
-console.log(JSON.parse(data));
+            console.log(JSON.parse(data));
             jQuery('.json-ld-result').html(data);
             var jsonObj = JSON.parse(data);
             parseJson(jsonObj);

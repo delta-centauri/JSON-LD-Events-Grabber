@@ -5,7 +5,6 @@
  */
 // include classes
 include "main.class.php";
-
 $sampleUrl = Main::$rootUrl.'external-website-simulation';
 ?>
 <!DOCTYPE html>
@@ -28,11 +27,12 @@ $sampleUrl = Main::$rootUrl.'external-website-simulation';
         <h2>Get JSON-LD</h2>
         <p>
             Enter URL <small>(with http(s)://)</small>: <input data-sample-url="<?php echo $sampleUrl ?>" class="website-url" type="text" value="">
-            <span class="btn js-btnGetJsonLd">Grab JSON-LD</span>
-            <br>If empty, sample-URL <b><a href="<?php echo $sampleUrl; ?>"><?php echo $sampleUrl; ?></a></b> will be used.
+            <br>You could use http://www.library.ethz.ch/en/About-us/Events<br>
+            Or, if you leave the input field empty, the sample page <b><a href="<?php echo $sampleUrl; ?>"><?php echo $sampleUrl; ?></a></b> will be used.<br>
+            
         </p>
         <p>
-            
+            <span class="btn js-btnGetJsonLd">Grab JSON-LD</span>
         </p>
         <pre class="json-ld-result">[empty]</pre>
 

@@ -1,21 +1,21 @@
 <?php
-
 class Main
 {
-
     public static $rootPath;
     public static $rootUrl;
+    public static $subdirectory;
 
     public static function init()
     {
+        self::$subdirectory = 'jldeg';
+
         self::$rootPath = $_SERVER['DOCUMENT_ROOT'] . '/';
         if (stripos(self::$rootPath, "xampp") !== false) {
-            self::$rootPath .= 'PK-AP8/';
+            self::$rootPath .= self::$subdirectory . '/';
         }
-        self::$rootUrl = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
-        if ($_SERVER['HTTP_HOST'] === "localhost") {
-            self::$rootUrl .= 'PK-AP8/';
-        }
+
+        self::$rootUrl = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/' . self::$subdirectory . '/';
+        
     }
 
     public static function getJsonLd($url)

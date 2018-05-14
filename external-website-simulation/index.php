@@ -13,26 +13,25 @@
     {
       "@context": "http://schema.org",
       "@type": "WebSite",
-      "url": "http://www.example.com/",
+      "url": "http://localhost/jldeg/external-website-simulation",
       "name": "Sample JSON-LD Site",
       "description": "Just an example",
       "author": {
           "@type": "Person",
           "name": "Roger Rutishauser"
-        },
-      "publisher": "HTW Chur"
+        }
     },
     {
       "@context": { "@vocab": "http://schema.org/" },
       "@type": "Event",
-      "name": "Lesung: «2001 - A Space Odyssey»",
-      "url": "http://www.example.com/lesung",
-      "description": "Wir freuen uns auf die nächste Lesung, diesmal mit Arthur C. Clarke. - using description property",
-      "about": "Wir freuen uns auf die nächste Lesung, diesmal mit Arthur C. Clarke. - using about property",
+      "name": "Reading: «2001 - A Space Odyssey»",
+      "url": "http://www.example.com/reading",
+      "description": "Looking forward to our next reading, this time with Arthur C. Clarke. - using description property",
+      "about": "Looking forward to our next reading, this time with Arthur C. Clarke. - using about property",
       "startDate": "2018-04-21",
       "location": {
         "@type": "Place",
-        "name": "Bibliothek Langenthal",
+        "name": "Public library Langenthal",
         "sameAs": "http://www.bibliothek-langenthal.ch",
         "address": {
           "@type": "PostalAddress",
